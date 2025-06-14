@@ -1,0 +1,85 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+}
+
+:root {
+    --lime-green: hsl(61, 70%, 52%);
+    --error-red: hsl(4, 69%, 50%);
+
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-500: hsl(200, 26%, 54%);
+    --slate-700: hsl(200, 24%, 40%);
+    --slate-900: hsl(202, 55%, 16%);
+
+    --ff-family: 'Plus Jakarta Sans';
+    --fs-paragraph: 1.2rem;
+    --fs-main-heading: 1.6rem;
+    --fs-sub-heading: 1.4rem;
+
+    --fw-normal: 500;
+    --fw-bold: 700;
+    
+    --accent-color: var(--lime-green);
+    --error-color: var(--error-red);
+    --results-bg-color: var(--slate-900);
+    --symbols-bg-color: var(--slate-300);
+    --results-text-color: var(--slate-300);
+
+    --pad: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    font-size: 62.5%;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: var(--ff-family);
+}
+
+p, label, span, button {
+    font-size: var(--fs-paragraph);
+}
+
+h1, h2 {
+    font-size: var(--fs-main-heading);
+}
+
+h3 {
+    font-size: var(--fs-sub-heading);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container {
+    padding: var(--pad);
+}
+
+.results-container {
+    background-color: var(--results-bg-color);
+    color: var(--results-text-color);
+    padding: var(--pad);
+}
+
+@media (min-width: 700px) {
+    main {
+        flex-direction: row;
+        width: 75%;
+
+        .form-container,
+        .results-container {
+            width: 50%;
+        }
+    }
+}
