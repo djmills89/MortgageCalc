@@ -24,7 +24,8 @@
     --accent-color: var(--lime-green);
     --error-color: var(--error-red);
     --results-bg-color: var(--slate-900);
-    --symbols-bg-color: var(--slate-300);
+    --border-color: var(--slate-500);
+    --symbols-bg-color: var(--slate-100);
     --results-text-color: var(--slate-300);
 
     --pad: 2rem;
@@ -37,12 +38,12 @@
 }
 
 body {
-    display: flex;
     font-size: 62.5%;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     font-family: var(--ff-family);
+    font-weight: var(--fw-normal);
+    color: var(--slate-900);
 }
 
 p, label, span, button {
@@ -60,6 +61,18 @@ h3 {
 main {
     display: flex;
     flex-direction: column;
+    margin-inline: auto;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.calculate-button {
+    background-color: var(--accent-color);
+    border: none;
+    padding-block: .5rem;
+    padding-inline: 2rem;
+    border-radius: 1.5rem;
 }
 
 .form-container {
@@ -70,9 +83,43 @@ main {
     background-color: var(--results-bg-color);
     color: var(--results-text-color);
     padding: var(--pad);
+    height: 100%;
+}
+
+.input-container {
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    border-radius: .2rem;
+    overflow: hidden;
+
+    span {
+        background-color: var(--symbols-bg-color);
+        white-space: nowrap;
+        flex-shrink: 0;
+        font-weight: var(--fw-normal);
+    }
+
+    input {
+        flex: 1;
+        min-width: 0;
+        
+    }
+    span,
+    input {
+        padding-block: .5rem;
+        padding-inline: .8rem;
+        font-size: 16px;
+    }
 }
 
 @media (min-width: 700px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
     main {
         flex-direction: row;
         width: 75%;
@@ -82,4 +129,15 @@ main {
             width: 50%;
         }
     }
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+  border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+  margin: 0; /* Optional: adjust margin as needed */
 }
