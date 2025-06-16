@@ -53,7 +53,12 @@ p, label, span, button {
     font-size: var(--fs-paragraph);
 }
 
-h1, h2 {
+h1 {
+    font-size: 1.5rem;
+    margin-block-end: .5rem;
+}
+
+h2 {
     font-size: var(--fs-main-heading);
 }
 
@@ -70,12 +75,29 @@ main {
     border: 1px solid black;
 }
 
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-block-end: .5rem;
+}
+
+#clear {
+    display: inline-block;
+    font-size: 1rem;
+    margin-block-end: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .calculate-button {
     background-color: var(--accent-color);
     border: none;
-    padding-block: .5rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1rem;
     padding-inline: 2rem;
-    border-radius: 1.5rem;
+    border-radius: 2rem;
     width: 100%;
 }
 
@@ -153,6 +175,7 @@ main {
     align-items: center;
     border-radius: .2rem;
     overflow: hidden;
+    margin-block-end: 1rem;
 
     span {
         background-color: var(--symbols-bg-color);
@@ -181,6 +204,10 @@ main {
     padding-inline: .8rem;
     border-radius: .2rem;
     margin-block-end: 1rem;
+
+    label {
+        display: inline;
+    }
 }
 
 input[type=radio] {

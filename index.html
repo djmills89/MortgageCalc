@@ -21,9 +21,9 @@
     <div class="form-container">
 
       <h1>Mortgage Calculator</h1>
-      <span>Clear All</span>
+      <span id="clear">Clear All</span>
 
-      <form action="">
+      <form action="" id="mortgage-form">
 
         <div class="mortgage">
           <label for="mortgage-amount">Mortgage Amount</label>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="results-option">
-          <label for="">Mortgage Type</label>
+          <label for="results">Mortgage Type</label>
           <div class="repayment-container">
             <input type="radio" name="results" id="repayment">
             <label for="repayment">Repayment</label>
@@ -61,7 +61,7 @@
           </div>
         </div>
 
-        <button class="calculate-button"><img src="./assets/images/icon-calculator.svg" alt="calculator icon"> Calculate Repayments</button>
+        <button class="calculate-button" id="submit-button"><img src="./assets/images/icon-calculator.svg" alt="calculator icon"> Calculate Repayments</button>
 
       </form>
 

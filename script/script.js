@@ -16,23 +16,30 @@ function calculateLoanSummary(principal, years, annualRate) {
     return { monthlyPayment, totalCost, interestPaid }
 }
 
-const mrtAmount = document.getElementById('mortgage-amount')
-const mrtTerm = document.getElementById('term')
-const mrtRate = document.getElementById('rate')
-
-const { monthlyPayment, totalCost, interestPaid } = 
-    calculateLoanSummary(
-        mrtAmount.valueAsNumber,
-        mrtTerm.valueAsNumber,
-        mrtRate.valueAsNumber
-    )
 
 const repaymentAmount = document.getElementById('monthly-payment')
-repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
 const totalPayment = document.getElementById('total-payment')
-totalPayment.innerText = `$${totalCost.toFixed(2)}`
-console.log(mrtAmount.valueAsNumber, mrtTerm.valueAsNumber, mrtRate.valueAsNumber)
+const submitBtn = document.getElementById('submit-button')
+const clearAll = document.getElementById('clear')
+const repaymentRadioBtn = document.getElementById('repayment')
+const interestRadioBtn = document.getElementById('interest')
 
-console.log(`Monthly: $${monthlyPayment.toFixed(2)}`)
-console.log(`Total Cost: $${totalCost.toFixed(2)}`)
-console.log(`Total Interest: $${interestPaid.toFixed(2)}`)
+submitBtn.addEventListener('click', (e) => {
+    e.preventDefault()
+    const mortgageAmount = document.getElementById('mortgage-amount').valueAsNumber
+    const mortgageTerm = document.getElementById('term').valueAsNumber
+    const mortgageRate = document.getElementById('rate').valueAsNumber
+
+    const {monthlyPayment, totalCost, interestPaid} = calculateLoanSummary(mortgageAmount, mortgageTerm, mortgageRate)
+
+    repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
+    totalPayment.innerText = `$${totalCost.toFixed(2)}`
+})
+
+clearAll.addEventListener('click', () => {
+    document.getElementById('mortgage-amount').value = ''
+    document.getElementById('term').value = ''
+    document.getElementById('rate').value = ''
+    repaymentRadioBtn.checked = false
+    interestRadioBtn.checked = false
+})
