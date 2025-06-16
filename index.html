@@ -24,32 +24,39 @@
       <span>Clear All</span>
 
       <form action="">
-        <label for="mortgage-amount">Mortgage Amount</label>
-        <div class="mortgage-input-container input-container">
-          <span id="currency">$</span>
-          <input type="number" name="mortgage-amount" id="mortgage-amount">
+
+        <div class="mortgage">
+          <label for="mortgage-amount">Mortgage Amount</label>
+          <div class="mortgage-input-container input-container">
+            <span id="currency">$</span>
+            <input type="number" name="mortgage-amount" id="mortgage-amount">
+          </div>
         </div>
 
-        <label for="term">Mortgage Term</label>
-        <div class="term-container input-container">
-          <input type="number" name="term" id="term">
-          <span id="years">years</span>
+        <div class="term-length">
+          <label for="term">Mortgage Term</label>
+          <div class="term-container input-container">
+            <input type="number" name="term" id="term">
+            <span id="years">years</span>
+          </div>
         </div>
         
-        <label for="rate">Interest Rate</label>
-        <div class="rate-container input-container">
-          <input type="number" name="rate" id="rate">
-          <span id="percent">%</span>
+        <div class="interest">
+          <label for="rate">Interest Rate</label>
+          <div class="rate-container input-container">
+            <input type="number" name="rate" id="rate">
+            <span id="percent">%</span>
+          </div>
         </div>
 
-        <label for="">Mortgage Type</label>
         <div class="results-option">
+          <label for="">Mortgage Type</label>
           <div class="repayment-container">
-            <input type="radio" name="repayment" id="repayment">
+            <input type="radio" name="results" id="repayment">
             <label for="repayment">Repayment</label>
           </div>
           <div class="interest-container">
-            <input type="radio" name="interest" id="interest">
+            <input type="radio" name="results" id="interest">
             <label for="interest">Interest Only</label>
           </div>
         </div>
@@ -66,11 +73,15 @@
         Your results are shown below based on the information you provided.
         To adjust the results, edit the form and click “calculate repayments” again.
       </p>
-      <div>
-        <h3>Your monthly repayments</h3>
-        <p>0</p>
-        <h3>Total you'll repay over the term</h3>
-        <p>0</p>
+      <div class="repayment-card">
+        <div class="top-border"></div>
+        <div class="content-box">
+          <h3>Your monthly repayments</h3>
+          <p id="monthly-payment">$1,797.74</p>
+          <hr>
+          <h3>Total you'll repay over the term</h3>
+          <p id="total-payment">$539,322.94</p>
+        </div>
       </div>
     </div>
 
