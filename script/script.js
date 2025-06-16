@@ -16,7 +16,23 @@ function calculateLoanSummary(principal, years, annualRate) {
     return { monthlyPayment, totalCost, interestPaid }
 }
 
-const { monthlyPayment, totalCost, interestPaid } = calculateLoanSummary(200000, 30, 7)
+const mrtAmount = document.getElementById('mortgage-amount')
+const mrtTerm = document.getElementById('term')
+const mrtRate = document.getElementById('rate')
+
+const { monthlyPayment, totalCost, interestPaid } = 
+    calculateLoanSummary(
+        mrtAmount.valueAsNumber,
+        mrtTerm.valueAsNumber,
+        mrtRate.valueAsNumber
+    )
+
+const repaymentAmount = document.getElementById('monthly-payment')
+repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
+const totalPayment = document.getElementById('total-payment')
+totalPayment.innerText = `$${totalCost.toFixed(2)}`
+console.log(mrtAmount.valueAsNumber, mrtTerm.valueAsNumber, mrtRate.valueAsNumber)
+
 console.log(`Monthly: $${monthlyPayment.toFixed(2)}`)
 console.log(`Total Cost: $${totalCost.toFixed(2)}`)
 console.log(`Total Interest: $${interestPaid.toFixed(2)}`)
