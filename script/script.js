@@ -1,4 +1,5 @@
 function calculateMonthlyPayment(principal, time, annualRate) {
+    //calculates the mortage
     const months = time * 12
     const monthlyRate = (annualRate / 100) / 12
     const factor = (monthlyRate * (1 + monthlyRate) ** months) / ((1 + monthlyRate) ** months - 1)
@@ -8,6 +9,7 @@ function calculateMonthlyPayment(principal, time, annualRate) {
 }
 
 function calculateLoanSummary(principal, years, annualRate) {
+    //generates the amounts need for the calulator
     const monthlyPayment = calculateMonthlyPayment(principal, years, annualRate)
     const numberOfPayments = years * 12
     const totalCost = monthlyPayment * numberOfPayments
@@ -17,21 +19,21 @@ function calculateLoanSummary(principal, years, annualRate) {
 }
 
 
-const repaymentAmount = document.getElementById('monthly-payment')
-const totalPayment = document.getElementById('total-payment')
-const submitBtn = document.getElementById('submit-button')
-const clearAll = document.getElementById('clear')
-const repaymentRadioBtn = document.getElementById('repayment')
-const interestRadioBtn = document.getElementById('interest')
+const repaymentAmount = document.getElementById('monthly-payment') // element displaying monthly payments
+const totalPayment = document.getElementById('total-payment') // element displaying total mortgage amount
+const submitBtn = document.getElementById('submit-button') // calculate payments button
+const clearAll = document.getElementById('clear') // clear all element
+const repaymentRadioBtn = document.getElementById('repayment') // repayment radio button option
+const interestRadioBtn = document.getElementById('interest') // interest only radio button option
 
-const mortgageAmount = document.getElementById('mortgage-amount')
-const mortgageTerm = document.getElementById('term')
-const mortgageRate = document.getElementById('rate')
+const mortgageAmount = document.getElementById('mortgage-amount') // input for the mortgage amount
+const mortgageTerm = document.getElementById('term') // input for the mortgage term
+const mortgageRate = document.getElementById('rate') // input for the mortgage rate
 
-const inputContainer = document.querySelectorAll('.input-container')
+const inputContainer = document.querySelectorAll('.input-container') // all the input containers
 
-const inputs = document.querySelectorAll('input')
-const radios = document.querySelectorAll('input[type="radio"]')
+const inputs = document.querySelectorAll('input') // all the inputs
+const radios = document.querySelectorAll('input[type="radio"]') // all the radio inputs
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
@@ -40,15 +42,16 @@ submitBtn.addEventListener('click', (e) => {
 
     //Validate number inputs
     inputContainer.forEach(input => {
-        const inputValue = input.querySelector('input')
+        const inputValue = input.querySelector('input') //for the actual input inside the container
         const errorMsg = document.getElementById(`${inputValue.id}-error`)
-        console.log(input.querySelector('input').value)
         if (!input.querySelector('input').value.trim()) {
+            //If the input is empty, show the errors, and style them
             errorMsg.textContent = 'This field is required.'
             input.querySelector('span').classList.add('symbol-bg-error')
             input.classList.add('input-container-error')
             allValid = false
         } else {
+            //If the input is fine, remove the errors and error styles
             errorMsg.textContent = ''
             input.querySelector('span').classList.remove('symbol-bg-error')
             input.classList.remove('input-container-error')
@@ -59,26 +62,47 @@ submitBtn.addEventListener('click', (e) => {
     const oneChecked = Array.from(radios).some(radio => radio.checked)
     if (!oneChecked) {
         //Trigger Browser validation
-        radios[0].setCustomValidity("This field is required")
-        radios[0].reportValidity()
+        const errorMsg = document.getElementById('amount-error')
+        errorMsg.textContent = 'This field is required'
         allValid = false
-    } else {
-        radios[0].setCustomValidity("") // Clear error
     }
 
     if (allValid) {
+        //calculate the summary
         const {monthlyPayment, totalCost, interestPaid} = 
             calculateLoanSummary(
                 mortgageAmount.valueAsNumber, 
                 mortgageTerm.valueAsNumber, 
                 mortgageRate.valueAsNumber)
-
-        repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
-        totalPayment.innerText = `$${totalCost.toFixed(2)}`
+        
+        //Update the dom
+        if (repaymentRadioBtn.checked) {
+            //gets the h3 inside the results container and sets the text
+            document.querySelector('.results-container').querySelector('h3').textContent = 'Your monthly repayments.'
+            repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
+            totalPayment.innerText = `$${totalCost.toFixed(2)}`
+        } else if (interestRadioBtn.checked) {
+            const interest = totalCost - interestPaid
+            //gets the h3 inside the results container and sets the text
+            document.querySelector('.results-container').querySelector('h3').textContent = 'Your total interest payments.'
+            repaymentAmount.innerText = `$${interest.toFixed(2)}`
+            totalPayment.innerText = `$${totalCost.toFixed(2)}`
+        }
+        
     }
 })
 
 clearAll.addEventListener('click', () => {
+    //clear all the inputs, reset the DOM and styles
+    inputContainer.forEach(input => {
+        //removes error border
+        input.classList.remove('input-container-error') 
+        //removes error symbol bg color
+        input.querySelector('span').classList.remove('symbol-bg-error') 
+        //removes error message text content
+        //grabs the element with the id of {inputName}-error -> p#term-error
+        document.getElementById(`${input.querySelector('input').id}-error`).textContent = '' 
+    })
     mortgageAmount.value = ''
     mortgageTerm.value = ''
     mortgageRate.value = ''
@@ -87,10 +111,3 @@ clearAll.addEventListener('click', () => {
     repaymentAmount.innerText = '$0'
     totalPayment.innerText = '$0'
 })
-
-console.log(mortgageAmount)
-// inputs.forEach(input => {
-//     input.addEventListener('focus', (e) => {
-//         e.target.style.border = '1px solid var(--accent-color)'
-//     })
-// })

@@ -1,4 +1,15 @@
 .error-message {
     font-size: .9rem;
     color: var(--error-color);
+    margin-block-end: 1rem;
+}
+
+div .input-container-error {
+    border: none;
+    outline: 1px solid var(--error-color);
+}
+
+.input-container .symbol-bg-error {
+    background-color: var(--error-color);
+    color: white;
 }

@@ -67,6 +67,10 @@ h3 {
     font-size: var(--fs-sub-heading);
 }
 
+#payment-display {
+    font-size: var(--fs-sub-heading);
+}
+
 main {
     display: flex;
     flex-direction: column;
@@ -111,6 +115,10 @@ label {
     padding-inline: 2rem;
     border-radius: 2rem;
     width: 100%;
+}
+
+.calculate-button:hover {
+    background-color: hsl(66, 86%, 80%);
 }
 
 .form-container {

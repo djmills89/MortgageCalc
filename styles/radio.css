@@ -46,3 +46,8 @@
     border: 1px solid var(--accent-color);
     background-color: hsl(66, 67%, 91%);
 }
+
+.repayment-container:hover,
+.interest-container:hover {
+    border-color: var(--accent-color);
+}
