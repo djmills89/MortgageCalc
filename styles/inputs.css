@@ -1,0 +1,55 @@
+.input-container {
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    border-radius: .2rem;
+    overflow: hidden;
+    margin-block-end: 1rem;
+
+    span {
+        background-color: var(--symbols-bg-color);
+        white-space: nowrap;
+        flex-shrink: 0;
+        font-weight: var(--fw-normal);
+    }
+
+    input {
+        flex: 1;
+        min-width: 0;
+        
+    }
+    span,
+    input {
+        padding-block: .5rem;
+        padding-inline: .8rem;
+        font-size: 16px;
+    }
+}
+
+.input-container:has(input:focus) {
+    border: 1px solid var(--accent-color);
+}
+.input-container:has(input:focus) > span {
+    background-color: var(--accent-color);
+}
+
+.input-container .input-container-error {
+    border: none;
+    outline: 1px solid var(--error-color);
+}
+
+.input-container .symbol-bg-error {
+    background-color: var(--error-color);
+    color: white;
+}
+
+input[type=number] {
+  -moz-appearance: textfield; /* Firefox */
+  border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
+  margin: 0; /* Optional: adjust margin as needed */
+}

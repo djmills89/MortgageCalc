@@ -13,7 +13,11 @@
     .attribution { font-size: 11px; text-align: center; }
     .attribution a { color: hsl(228, 45%, 44%); }
   </style>
-  <link rel="stylesheet" href="./styles/styles.css">
+  <link rel="stylesheet" href="./styles/base.css">
+  <link rel="stylesheet" href="./styles/results.css">
+  <link rel="stylesheet" href="./styles/radio.css">
+  <link rel="stylesheet" href="./styles/inputs.css">
+  <link rel="stylesheet" href="./styles/error.css">
 </head>
 <body>
 
@@ -23,41 +27,45 @@
       <h1>Mortgage Calculator</h1>
       <span id="clear">Clear All</span>
 
-      <form action="" id="mortgage-form">
+      <form action="" id="mortgage-form" novalidate>
 
         <div class="mortgage">
           <label for="mortgage-amount">Mortgage Amount</label>
           <div class="mortgage-input-container input-container">
             <span id="currency">$</span>
-            <input type="number" name="mortgage-amount" id="mortgage-amount">
+            <input type="number" step="any" name="mortgage-amount" id="mortgage-amount" required>
           </div>
+          <p class="error-message" id="mortgage-amount-error"></p>
         </div>
 
         <div class="term-length">
           <label for="term">Mortgage Term</label>
           <div class="term-container input-container">
-            <input type="number" name="term" id="term">
+            <input type="number" step="any" name="term" id="term" required>
             <span id="years">years</span>
           </div>
+          <p class="error-message" id="term-error"></p>
         </div>
         
         <div class="interest">
           <label for="rate">Interest Rate</label>
           <div class="rate-container input-container">
-            <input type="number" name="rate" id="rate">
+            <input type="number" step="any" name="rate" id="rate" required>
             <span id="percent">%</span>
           </div>
+          <p class="error-message" id="rate-error"></p>
         </div>
 
         <div class="results-option">
           <label for="results">Mortgage Type</label>
           <div class="repayment-container">
-            <input type="radio" name="results" id="repayment">
+            <input type="radio" name="results" id="repayment" required>
             <label for="repayment">Repayment</label>
           </div>
           <div class="interest-container">
             <input type="radio" name="results" id="interest">
             <label for="interest">Interest Only</label>
+            <p class="error-message" id="amount-error"></p>
           </div>
         </div>
 

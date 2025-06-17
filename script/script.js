@@ -28,21 +28,54 @@ const mortgageAmount = document.getElementById('mortgage-amount')
 const mortgageTerm = document.getElementById('term')
 const mortgageRate = document.getElementById('rate')
 
-const inputContainer = document.querySelector('.input-container')
+const inputContainer = document.querySelectorAll('.input-container')
 
 const inputs = document.querySelectorAll('input')
+const radios = document.querySelectorAll('input[type="radio"]')
 
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
+    let allValid = true;
 
-    const {monthlyPayment, totalCost, interestPaid} = 
-        calculateLoanSummary(
-            mortgageAmount.valueAsNumber, 
-            mortgageTerm.valueAsNumber, 
-            mortgageRate.valueAsNumber)
 
-    repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
-    totalPayment.innerText = `$${totalCost.toFixed(2)}`
+    //Validate number inputs
+    inputContainer.forEach(input => {
+        const inputValue = input.querySelector('input')
+        const errorMsg = document.getElementById(`${inputValue.id}-error`)
+        console.log(input.querySelector('input').value)
+        if (!input.querySelector('input').value.trim()) {
+            errorMsg.textContent = 'This field is required.'
+            input.querySelector('span').classList.add('symbol-bg-error')
+            input.classList.add('input-container-error')
+            allValid = false
+        } else {
+            errorMsg.textContent = ''
+            input.querySelector('span').classList.remove('symbol-bg-error')
+            input.classList.remove('input-container-error')
+            allValid = true
+        }
+    })
+
+    const oneChecked = Array.from(radios).some(radio => radio.checked)
+    if (!oneChecked) {
+        //Trigger Browser validation
+        radios[0].setCustomValidity("This field is required")
+        radios[0].reportValidity()
+        allValid = false
+    } else {
+        radios[0].setCustomValidity("") // Clear error
+    }
+
+    if (allValid) {
+        const {monthlyPayment, totalCost, interestPaid} = 
+            calculateLoanSummary(
+                mortgageAmount.valueAsNumber, 
+                mortgageTerm.valueAsNumber, 
+                mortgageRate.valueAsNumber)
+
+        repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
+        totalPayment.innerText = `$${totalCost.toFixed(2)}`
+    }
 })
 
 clearAll.addEventListener('click', () => {

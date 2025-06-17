@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Plus Jakarta Sans';
+    src: url('../assets/fonts/PlusJakartaSans-VariableFont_wght.ttf');
+}
+
+:root {
+    --lime-green: hsl(61, 70%, 52%);
+    --error-red: hsl(4, 69%, 50%);
+
+    --slate-100: hsl(202, 86%, 94%);
+    --slate-300: hsl(203, 41%, 72%);
+    --slate-500: hsl(200, 26%, 54%);
+    --slate-700: hsl(200, 24%, 40%);
+    --slate-900: hsl(202, 55%, 16%);
+    --slate-1000: hsl(202, 55%, 10%);
+
+    --ff-family: 'Plus Jakarta Sans';
+    --fs-paragraph: 1.2rem;
+    --fs-main-heading: 1.6rem;
+    --fs-sub-heading: 1.4rem;
+
+    --fw-normal: 500;
+    --fw-bold: 700;
+    
+    --accent-color: var(--lime-green);
+    --error-color: var(--error-red);
+    --results-bg-color: var(--slate-900);
+    --repayments-bg-color: var(--slate-1000);
+    --border-color: var(--slate-500);
+    --symbols-bg-color: var(--slate-100);
+    --results-text-color: var(--slate-300);
+    --line-break-color: var(--slate-700);
+
+    --pad: 2rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 62.5%;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--ff-family);
+    font-weight: var(--fw-normal);
+    color: var(--slate-900);
+    overflow: hidden;
+}
+
+p, label, span, button {
+    font-size: var(--fs-paragraph);
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-block-end: .5rem;
+}
+
+h2 {
+    font-size: var(--fs-main-heading);
+}
+
+h3 {
+    font-size: var(--fs-sub-heading);
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin-inline: auto;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+}
+
+input, button,
+.repayment-container,
+.interest-container {
+    cursor: pointer;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-block-end: .5rem;
+}
+
+#clear {
+    display: inline-block;
+    font-size: 1rem;
+    margin-block-end: 1rem;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.calculate-button {
+    background-color: var(--accent-color);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    padding-block: 1rem;
+    padding-inline: 2rem;
+    border-radius: 2rem;
+    width: 100%;
+}
+
+.form-container {
+    padding: var(--pad);
+}
+
+
+
+
+@media (min-width: 700px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    main {
+        flex-direction: row;
+        width: 75%;
+
+        .form-container,
+        .results-container {
+            width: 50%;
+        }
+    }
+}
+
