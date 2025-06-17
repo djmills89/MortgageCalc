@@ -24,22 +24,40 @@ const clearAll = document.getElementById('clear')
 const repaymentRadioBtn = document.getElementById('repayment')
 const interestRadioBtn = document.getElementById('interest')
 
+const mortgageAmount = document.getElementById('mortgage-amount')
+const mortgageTerm = document.getElementById('term')
+const mortgageRate = document.getElementById('rate')
+
+const inputContainer = document.querySelector('.input-container')
+
+const inputs = document.querySelectorAll('input')
+
 submitBtn.addEventListener('click', (e) => {
     e.preventDefault()
-    const mortgageAmount = document.getElementById('mortgage-amount').valueAsNumber
-    const mortgageTerm = document.getElementById('term').valueAsNumber
-    const mortgageRate = document.getElementById('rate').valueAsNumber
 
-    const {monthlyPayment, totalCost, interestPaid} = calculateLoanSummary(mortgageAmount, mortgageTerm, mortgageRate)
+    const {monthlyPayment, totalCost, interestPaid} = 
+        calculateLoanSummary(
+            mortgageAmount.valueAsNumber, 
+            mortgageTerm.valueAsNumber, 
+            mortgageRate.valueAsNumber)
 
     repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
     totalPayment.innerText = `$${totalCost.toFixed(2)}`
 })
 
 clearAll.addEventListener('click', () => {
-    document.getElementById('mortgage-amount').value = ''
-    document.getElementById('term').value = ''
-    document.getElementById('rate').value = ''
+    mortgageAmount.value = ''
+    mortgageTerm.value = ''
+    mortgageRate.value = ''
     repaymentRadioBtn.checked = false
     interestRadioBtn.checked = false
+    repaymentAmount.innerText = '$0'
+    totalPayment.innerText = '$0'
 })
+
+console.log(mortgageAmount)
+// inputs.forEach(input => {
+//     input.addEventListener('focus', (e) => {
+//         e.target.style.border = '1px solid var(--accent-color)'
+//     })
+// })

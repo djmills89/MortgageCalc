@@ -47,6 +47,7 @@ body {
     font-family: var(--ff-family);
     font-weight: var(--fw-normal);
     color: var(--slate-900);
+    overflow: hidden;
 }
 
 p, label, span, button {
@@ -73,6 +74,17 @@ main {
     justify-content: center;
     align-items: center;
     border: 1px solid black;
+}
+
+input:focus {
+    outline: none;
+}
+
+.input-container:has(input:focus) {
+    border: 1px solid var(--accent-color);
+}
+.input-container:has(input:focus) > span {
+    background-color: var(--accent-color);
 }
 
 label {
@@ -200,18 +212,26 @@ label {
 .repayment-container,
 .interest-container {
     border: 1px solid var(--border-color);
-    padding-block: .5rem;
+    padding-block-start: .5rem;
     padding-inline: .8rem;
     border-radius: .2rem;
     margin-block-end: 1rem;
 
+    input[type=radio] {
+        accent-color: rgb(137, 150, 90);
+    }
+
     label {
-        display: inline;
+        padding-inline-start: 1rem;
+        cursor: pointer;
+        display: inline-block;
     }
 }
 
-input[type=radio] {
-    accent-color: var(--accent-color);
+.repayment-container:has(input:checked),
+.interest-container:has(input:checked) {
+    border: 1px solid var(--accent-color);
+    background-color: hsl(66, 67%, 91%);
 }
 
 @media (min-width: 700px) {
