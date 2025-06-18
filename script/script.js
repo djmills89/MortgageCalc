@@ -45,6 +45,7 @@ clearAll.addEventListener('click', () => {
     resetDOM()
 })
 
+//funtions
 function calculateMonthlyPayment(principal, time, annualRate) {
     //calculates the mortage
     const months = time * 12

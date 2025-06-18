@@ -15,7 +15,7 @@
         border: 2px solid var(--slate-500);
         border-radius: 50%;
         position: relative;
-        transform: translateY(20%);
+        transform: translateY(40%);
         cursor: pointer;
     }
 
@@ -36,8 +36,10 @@
 
     label {
         padding-inline-start: 1rem;
+        padding-block: .2rem;
         cursor: pointer;
         display: inline-block;
+        font-weight: var(--fw-bold);
     }
 }
 
