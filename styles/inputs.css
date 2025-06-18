@@ -16,6 +16,8 @@
     input {
         flex: 1;
         min-width: 0;
+        font-family: var(--ff-normal);
+        font-weight: var(--fw-bold);
         
     }
     span,

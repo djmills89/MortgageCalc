@@ -1,0 +1,53 @@
+@media (min-width: 900px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: var(--slate-100);
+    }
+    main {
+        display: flex;
+        flex-direction: row;
+        max-width: 900px;
+        background-color: white;
+        border-radius: 1rem;
+
+        .form-container,
+        .results-container {
+            width: 50%;
+        }
+    }
+
+    .desktop-heading {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+
+        span {
+            margin-block-start: 3.5rem;
+            margin-block-end: .5rem;
+        }
+    }
+
+    .desktop-display {
+        display: flex;
+        width: 100%;
+        gap: .9rem;
+
+        div {
+            width: 48%;
+        }
+
+        .input-container {
+            width: 100%;
+        }
+    }
+
+    .results-container {
+        border-radius: 1rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 3rem;
+    }
+}

@@ -18,14 +18,17 @@
   <link rel="stylesheet" href="./styles/radio.css">
   <link rel="stylesheet" href="./styles/inputs.css">
   <link rel="stylesheet" href="./styles/error.css">
+  <link rel="stylesheet" href="./styles/media.css">
 </head>
 <body>
 
   <main>
     <div class="form-container">
 
-      <h1>Mortgage Calculator</h1>
-      <span id="clear">Clear All</span>
+      <div class="desktop-heading">
+        <h1>Mortgage Calculator</h1>
+        <span id="clear">Clear All</span>
+      </div>
 
       <form action="" id="mortgage-form" novalidate>
 
@@ -38,22 +41,24 @@
           <p class="error-message" id="mortgage-amount-error"></p>
         </div>
 
-        <div class="term-length">
-          <label for="term">Mortgage Term</label>
-          <div class="term-container input-container">
-            <input type="number" step="any" name="term" id="term" required>
-            <span id="years">years</span>
+        <div class="desktop-display">
+          <div class="term-length">
+            <label for="term">Mortgage Term</label>
+            <div class="term-container input-container">
+              <input type="number" step="any" name="term" id="term" required>
+              <span id="years">years</span>
+            </div>
+            <p class="error-message" id="term-error"></p>
           </div>
-          <p class="error-message" id="term-error"></p>
-        </div>
-        
-        <div class="interest">
-          <label for="rate">Interest Rate</label>
-          <div class="rate-container input-container">
-            <input type="number" step="any" name="rate" id="rate" required>
-            <span id="percent">%</span>
+          
+          <div class="interest">
+            <label for="rate">Interest Rate</label>
+            <div class="rate-container input-container">
+              <input type="number" step="any" name="rate" id="rate" required>
+              <span id="percent">%</span>
+            </div>
+            <p class="error-message" id="rate-error"></p>
           </div>
-          <p class="error-message" id="rate-error"></p>
         </div>
 
         <div class="results-option">

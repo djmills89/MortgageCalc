@@ -96,14 +96,14 @@ function updateDOM() {
         if (repaymentRadioBtn.checked) {
             //gets the h3 inside the results container and sets the text
             document.querySelector('.results-container').querySelector('h3').textContent = 'Your monthly repayments.'
-            repaymentAmount.innerText = `$${monthlyPayment.toFixed(2)}`
-            totalPayment.innerText = `$${totalCost.toFixed(2)}`
+            repaymentAmount.innerText = `$${monthlyPayment.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
+            totalPayment.innerText = `$${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
         } else if (interestRadioBtn.checked) {
             const interest = totalCost - interestPaid
             //gets the h3 inside the results container and sets the text
             document.querySelector('.results-container').querySelector('h3').textContent = 'Your total interest payments.'
-            repaymentAmount.innerText = `$${interest.toFixed(2)}`
-            totalPayment.innerText = `$${totalCost.toFixed(2)}`
+            repaymentAmount.innerText = `$${interest.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
+            totalPayment.innerText = `$${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
         }
 }
 

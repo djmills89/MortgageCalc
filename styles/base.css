@@ -42,6 +42,7 @@
 
 body {
     font-size: 62.5%;
+    background-color: var(--slate-100);
     justify-content: center;
     align-items: center;
     font-family: var(--ff-family);
@@ -50,13 +51,19 @@ body {
     overflow: hidden;
 }
 
+main {
+    max-width: 375px;
+    margin-inline: auto;
+    background-color: white;
+}
+
 p, label, span, button {
     font-size: var(--fs-paragraph);
 }
 
 h1 {
     font-size: 1.5rem;
-    margin-block-start: 2rem;
+    padding-block-start: 2rem;
     margin-block-end: .5rem;
 }
 
@@ -123,21 +130,5 @@ label {
 
 
 
-@media (min-width: 700px) {
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-    }
-    main {
-        flex-direction: row;
-        width: 75%;
 
-        .form-container,
-        .results-container {
-            width: 50%;
-        }
-    }
-}
 
