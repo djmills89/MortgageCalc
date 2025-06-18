@@ -50,4 +50,12 @@
         border-top-left-radius: 0;
         border-bottom-left-radius: 3rem;
     }
+
+    .calculate-button {
+        width: 75%;
+    }
+
+    .empty-results {
+        height: 100%;
+    }
 }

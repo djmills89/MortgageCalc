@@ -98,12 +98,16 @@ function updateDOM() {
             document.querySelector('.results-container').querySelector('h3').textContent = 'Your monthly repayments.'
             repaymentAmount.innerText = `$${monthlyPayment.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
             totalPayment.innerText = `$${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
+            document.querySelector('.empty-results').style = 'display: none'
+            document.querySelector('.calculated-results').style = 'display: block'
         } else if (interestRadioBtn.checked) {
             const interest = totalCost - interestPaid
             //gets the h3 inside the results container and sets the text
             document.querySelector('.results-container').querySelector('h3').textContent = 'Your total interest payments.'
             repaymentAmount.innerText = `$${interest.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
             totalPayment.innerText = `$${totalCost.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits:2})}`
+            document.querySelector('.empty-results').style = 'display: none'
+            document.querySelector('.calculated-results').style = 'display: block'
         }
 }
 
@@ -127,4 +131,7 @@ function resetDOM() {
     interestRadioBtn.checked = false
     repaymentAmount.innerText = '$0'
     totalPayment.innerText = '$0'
+
+    document.querySelector('.empty-results').style = 'display: block'
+    document.querySelector('.calculated-results').style = 'display: none'
 }

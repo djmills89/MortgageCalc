@@ -66,3 +66,22 @@
 .results-option {
     padding-block-end: .5rem;
 }
+
+.empty-results {
+    text-align: center;
+    height: 100vh;
+    
+    h3 {
+        font-size: 1.6rem;
+        margin-block-end: 1rem;
+        color: white;
+    }
+
+    p {
+        line-height: 1.5;
+    }
+}
+
+.calculated-results {
+    display: none;
+}
