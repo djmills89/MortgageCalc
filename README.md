@@ -57,12 +57,6 @@ I learned about browsers being picky about colors when it comes to accent-color.
 
 This challenge was harder than it looked from the project description.  I was surprised that the JavaScript part was relatively easy compared to all the CSS issues that I ran into.  I think I need better up front planning when doing my markup.  There were a few cases where more thought out structure could have prevented some headaches.  Also, I feel I should focus on smaller pieces at a time, rather than jumping around trying to get it all working at the same time.
 
-### Useful resources
-
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
-
-**Note: Delete this note and replace the list above with resources that helped you during the challenge. These could come in handy for anyone viewing your solution or for yourself when you look back on this project in the future.**
 
 ## Author
 - Frontend Mentor - [@djmills89](https://www.frontendmentor.io/profile/djmills89)
