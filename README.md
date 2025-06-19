@@ -31,7 +31,7 @@ Users should be able to:
 ![Screenshot](./assets/images/screenshot.png)
 
 ### Links
-- Live Site URL: [Live Site](https://mortgagecalculaor.netlify.app/)
+- Live Site URL: [Live Site](https://dm-mortgagecalculator.netlify.app/)
 
 ### Built with
 
